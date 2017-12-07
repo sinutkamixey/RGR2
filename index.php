@@ -25,9 +25,9 @@
 		
 		<div class= "calcul">
 		<form method="GET" action="index.php">
-			<input type="text" name="side1"  placeholder="Введите значение стороны 1" value="<?= htmlspecialchars($side1) ?>">
-			<input type="text" name="side2" placeholder="Введите значение стороны 2" value="<?= htmlspecialchars($side2) ?>">
-			<input type="text" name="side3" placeholder="Введите значение основания" value="<?= htmlspecialchars($side3) ?>">
+			<input type="text" name="side1"  placeholder="Введите значение  a" value="<?= htmlspecialchars($side1) ?>">
+			<input type="text" name="side2" placeholder="Введите значение  b" value="<?= htmlspecialchars($side2) ?>">
+			<input type="text" name="side3" placeholder="Введите значение  с" value="<?= htmlspecialchars($side3) ?>">
 			<input type="submit" value="Вычислить">
 		</form>
 		
@@ -41,6 +41,11 @@
 				}elseif ($side1 <=0 || $side2 <=0 || $side3 <=0){
 					echo '<div class="error">';
 					$result='Значение стороны не может быть отрицательным или равным нулю!';
+					echo  "Ошибка: $result";
+					echo '</div>';
+				}elseif ($side1 + $side2 <= $side3 || $side1 + $side3 <= $side2 || $side3 + $side2 <= $side1){
+					echo '<div class="error">';
+					$result='Такого треугольника существовать не может!';
 					echo  "Ошибка: $result";
 					echo '</div>';
 				}elseif((INT)($side1) && (INT)($side2) && (INT)($side3) > 0){
