@@ -49,7 +49,10 @@
 					echo  "Ошибка: $result";
 					echo '</div>';
 				}elseif((INT)($side1) && (INT)($side2) && (INT)($side3) > 0){
-					$result = (sqrt($side1*$side2*($side1+$side2+$side3)*($side1+$side2-$side3))/($side1+$side2));
+					$newside1 = str_replace(",",".",$side1);
+					$newside2 = str_replace(",",".",$side2);
+					$newside3 = str_replace(",",".",$side3);
+					$result = (sqrt($newside1*$newside2*($newside1+$newside2+$newside3)*($newside1+$newside2-$newside3))/($newside1+$newside2));
 					echo  'Биссектриса='. number_format($result,1,',',' ');
 				}	
 			}
